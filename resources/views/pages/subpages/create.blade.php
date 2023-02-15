@@ -29,7 +29,7 @@
         
         @foreach ($tags as $tag)
 
-            <input type="checkbox" name="categories[]" value={{ $tag -> id }}>
+            <input type="checkbox" name="tags[]" value={{ $tag -> id }}>
             <label for="tags">{{ $tag -> name }}</label> <br>
 
         @endforeach
