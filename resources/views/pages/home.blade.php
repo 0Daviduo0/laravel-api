@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Films</h1>
+    <h1>Film</h1>
 
     @foreach ($genres as $genre)
         <h2> Genere: {{ $genre-> name }}</h2>
@@ -12,8 +12,11 @@
                 <li>
 
                     Film: {{ $movie -> name }} | Anno: {{ $movie -> year }} <br>
-                    Genere: {{ $movie -> genre -> name }} <br>
 
+                    @foreach ($movie -> tags as $tag)
+                        Tag: {{ $tag -> name }} | 
+                    @endforeach
+                    
                 </li> <br> <br>
             @endforeach
         </ul>

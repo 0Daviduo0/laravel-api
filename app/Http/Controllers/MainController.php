@@ -11,8 +11,13 @@ use App\Models\Movie;
 class MainController extends Controller
 {
     //------pagina principale------
-    public function homepage() {
+    public function home() {
         $genres = Genre :: all();
-    return view('pages.homepage', compact('genres'));
+    return view('pages.home', compact('genres'));
+    }
+
+    public function movie() {
+        $movies = Movie :: all();
+    return view('pages.subpages.movie', compact('movies'));
     }
 }
