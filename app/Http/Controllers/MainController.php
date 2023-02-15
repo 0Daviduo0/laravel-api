@@ -12,7 +12,7 @@ class MainController extends Controller
 {
     //------pagina principale------
     public function homepage() {
-        $tags = Tag :: all();
-    return view('pages.homepage', compact('tags'));
+        $genres = Genre :: all();
+    return view('pages.homepage', compact('genres'));
     }
 }

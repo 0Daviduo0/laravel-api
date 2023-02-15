@@ -4,11 +4,11 @@
 
     <h1>Films</h1>
 
-    @foreach ($tags as $tag)
-        <h2> Nome Tag: {{ $tag-> name }}</h2>
-        <p> Descrizione Tag: {{ $tag-> description }}</p>
+    @foreach ($genres as $genre)
+        <h2> Genere: {{ $genre-> name }}</h2>
+        <p> Descrizione genere: {{ $genre-> description }}</p>
         <ul>
-            @foreach ($tag -> movies as $movie)
+            @foreach ($genre -> movies as $movie)
                 <li>
 
                     Film: {{ $movie -> name }} | Anno: {{ $movie -> year }} <br>
