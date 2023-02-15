@@ -14,10 +14,12 @@ class MovieFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            //
+            'name' => fake() -> words(rand(1, 3), true),
+            'year' => fake() -> dateTimeBetween('-30 years', 'now'),
+            'cashOut' => fake() -> randomNumber(6, true),
         ];
     }
 }

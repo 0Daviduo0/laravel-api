@@ -14,10 +14,11 @@ class GenreFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            //
+            'name' => fake() -> words(rand(1, 2), true),
+            'description' => fake() -> text(rand(50, 200)),
         ];
     }
 }
