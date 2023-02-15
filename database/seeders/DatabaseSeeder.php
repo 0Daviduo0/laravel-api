@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this -> call([
             TagSeeder :: class,
             GenreSeeder :: class,
+            MovieSeeder :: class,
         ]);
     }
 }
