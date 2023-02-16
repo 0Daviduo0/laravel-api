@@ -53,46 +53,45 @@ class MainController extends Controller
     }
 
     //------Funzione per modificare i prodotti------
-    public function productEdit(Product $product) {
+    public function edit(Movie $movie) {
 
-            $typologies = Typology :: all();
-            $categories = Category :: all();
+            $genres = Genre :: all();
+            $tags = Tag :: all();
 
-        return view('pages.product.edit', compact(
-                        'product',
-                        'typologies',
-                        'categories'
+        return view('pages.subpages.edit', compact(
+                        'movie',
+                        'genres',
+                        'tags'
                     ));
     }
-    //Funzione per aggiornare i prodotti modificati
-    public function productUpdate(Request $request, Product $product) {
+    //Funzione per aggiornare i film modificati
+    public function update(Request $request, Movie $movie) {
 
         $data = $request -> validate([
             'name' => 'required|string|max:64',
-            'description' => 'nullable|string',
-            'price' => 'required|integer',
-            'weight' => 'required|integer',
-            'typology_id' => 'required|integer',
-            'categories' => 'required|array'
+            'year' => 'required|integer',
+            'cashOut' => 'required|integer',
+            'genre_id' => 'required|integer',
+            'tags' => 'required|array'
         ]);
 
-            $product -> update($data);
-            $typology = Typology :: find($data['typology_id']);
+            $movie -> update($data);
+            $genre = Genre :: find($data['genre_id']);
 
-            $product -> typology() -> associate($typology);
-            $product -> save();
+            $movie -> genre() -> associate($genre);
+            $movie -> save();
             
-            $categories = Category :: find($data['categories']);
-            $product -> categories() -> sync($categories);
+            $tags = Tag :: find($data['tags']);
+            $movie -> tags() -> sync($tags);
 
         return redirect() -> route('home');
     }
 
-    //------Funzione per eliminare i prodotti dal DB------
-    public function productDelete(Product $product) {
+    //------Funzione per eliminare i film dal DB------
+    public function delete(Movie $movie) {
 
-            $product -> categories() -> sync([]);
-            $product -> delete();
+            $movie -> tags() -> sync([]);
+            $movie -> delete();
 
         return redirect() -> route('home');
     }
