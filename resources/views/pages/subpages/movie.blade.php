@@ -18,7 +18,9 @@
             <br>
             @foreach ($movie -> tags as $tag)
                 Tag: {{ $tag -> name }} | 
-            @endforeach
+            @endforeach <br>
+            <a href="{{ route('movie.edit', $movie) }}">Modifica 📝 </a> | 
+            <a href="{{ route('movie.delete', $movie) }}"> Cancella ❌</a>
                             
         </p>
 
