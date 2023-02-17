@@ -15,4 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//le rotte dentro api.php in automatico mettono /api davanti al link,
+//quindi mettendo /v1/movie/all il risultato sarebbe api/v1/movie/all
+
+use App\Http\Controllers\ApiController;
+
+Route::get('/v1/movie/all', [ApiController::class, 'movieAll']);
+
 
