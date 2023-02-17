@@ -8,10 +8,10 @@ export default {
     .then(res => {
       
       const data = res.data;
-      const success = res.success;
-      const movies = res.response;
+      const success = data.success;
+      const movies = data.response;
 
-      console.log(data);
+      console.log(movies);
       // console.log(movies); non sta funzionando
 
     })
