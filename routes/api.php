@@ -20,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ApiController;
 
-Route::get('/v1/movie/all', [ApiController::class, 'movieAll']);
+//route for the movie list
+Route::get('/v1/movie/all', [ApiController::class, 'getAll']);
 
+//route to store and update movies
+Route :: post('/v1/movie/store', [ApiController :: class, 'Store']);
+Route :: post('/v1/movie/update/{movie}', [ApiController :: class, 'Update']);
 
+//route to delete movies
+Route :: get('/v1/movie/delete/{movie}', [ApiController :: class, 'Delete']);
