@@ -28,4 +28,4 @@ Route :: post('/v1/movie/store', [ApiController :: class, 'Store']);
 Route :: post('/v1/movie/update/{movie}', [ApiController :: class, 'Update']);
 
 //route to delete movies
-Route :: get('/v1/movie/delete/{movie}', [ApiController :: class, 'Delete']);
+Route :: delete('/v1/movie/delete/{movie}', [ApiController :: class, 'Delete']);

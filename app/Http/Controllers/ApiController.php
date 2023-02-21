@@ -57,7 +57,7 @@ class ApiController extends Controller
             $movie -> tags() -> sync($tags);
         }
 
-        Mail::to('mail@adminAllert.com')->send(new NewMovie($movie));
+        Mail::to('admin@adminAllert.com')->send(new NewMovie($movie));
 
         //send json with the movie
         return response()->json([

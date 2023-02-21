@@ -18,10 +18,10 @@
 
     <p>
         <h2> {{$movie -> name}} - {{$movie -> year}} </h2> <br>
-        <h3> {{$movie -> genre -> name}} - {{$movie -> cashOut}} </h3> <br>
+        <h3> {{$movie -> genre -> name}} - {{$movie -> cashOut}}$ </h3> <br>
         Con le seguenti Etichette:
         @foreach ($movie -> tags as $tag)
-            <li> {{$tag.name}} </li>
+            <li> {{$tag -> name}} </li>
         @endforeach
 
     </p>
