@@ -38,7 +38,7 @@ class ApiController extends Controller
             'year'=>'required|integer|min:0',
             'cashOut'=>'required|integer|min:0',
             'genre_id'=>'required|integer|min:1',
-            'tags_id'=>'required|array'
+            'tags_id'=>'nullable|array'
         ]);
 
         //find and associte genre
@@ -48,8 +48,11 @@ class ApiController extends Controller
         $movie -> save();
 
         //find tags and associate tags
-        $tags = Tag::find($data['tags_id']);
-        $movie->tags()->sync($tags);
+        if (array_key_exists('tags_id', $data)) {
+
+            $tags = Tag :: find($data['tags_id']);
+            $movie -> tags() -> sync($tags);
+        }
 
         //send json with the movie
         return response()->json([
@@ -66,7 +69,7 @@ class ApiController extends Controller
             'year'=>'required|integer|min:0',
             'cashOut'=>'required|integer|min:0',
             'genre_id'=>'required|integer|min:1',
-            'tags_id'=>'required|array'
+            'tags_id'=>'nullable|array'
         ]);
 
         //find and associte genre
@@ -76,8 +79,11 @@ class ApiController extends Controller
         $movie->save();
 
         //find tags and associate tags
-        $tags = Tag::find($data['tags_id']);
-        $movie->tags()->sync($tags);
+        if (array_key_exists('tags_id', $data)) {
+
+            $tags = Tag :: find($data['tags_id']);
+            $movie -> tags() -> sync($tags);
+        }
 
         //send json with the movie
         return response()->json([
